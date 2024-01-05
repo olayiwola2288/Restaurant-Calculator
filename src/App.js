@@ -3,19 +3,19 @@ import { useState } from "react";
 const initialFriends = [
   {
     id: 118836,
-    name: "Clark",
+    name: "Olalere",
     image: "https://i.pravatar.cc/48?u=118836",
     balance: -7,
   },
   {
     id: 933372,
-    name: "Sarah",
+    name: "A'isah",
     image: "https://i.pravatar.cc/48?u=933372",
     balance: 20,
   },
   {
     id: 499476,
-    name: "Anthony",
+    name: "Adenike",
     image: "https://i.pravatar.cc/48?u=499476",
     balance: 0,
   },
@@ -60,7 +60,7 @@ export default function App() {
   }
 
   return (
-    <div className="app">
+    <div className="app lg:flex md:flex mt-11">
       <div className="sidebar">
         <FriendList
           friends={friends}
@@ -153,7 +153,6 @@ function FormAddFriend({ onAddFriend }) {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-
       <label>🖼 Image URL</label>
       <input
         type="text"
@@ -183,14 +182,14 @@ function FormSplitBill({ selectedFriend, onSplitBill }) {
 
       <label>💰 Bill value</label>
       <input
-        type="text"
+        type="number"
         value={bill}
         onChange={(e) => setBill(Number(e.target.value))}
       />
 
       <label>🧍‍♂️ Your bill</label>
       <input
-        type="text"
+        type="number"
         value={paidByUser}
         onChange={(e) =>
           setPaidByUser(
@@ -200,7 +199,7 @@ function FormSplitBill({ selectedFriend, onSplitBill }) {
       />
 
       <label>👩🏾‍🤝‍👩🏼 {selectedFriend.name}'s expense</label>
-      <input type="text" disabled value={paidByFriend} />
+      <input type="number" disabled value={paidByFriend} />
 
       <label>🤑 who is paying the bill</label>
       <select

@@ -80,6 +80,7 @@ export default function App() {
           onSplitBill={handleSplitBill}
         />
       )}
+      <Footer/>
     </div>
   );
 }
@@ -219,4 +220,12 @@ function FormSplitBill({ selectedFriend, onSplitBill }) {
       <Button>Add</Button>
     </form>
   );
+}
+function Footer() {
+  return(
+    <div>
+      <marquee> </marquee>
+      
+    </div>
+  )
 }

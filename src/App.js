@@ -56,49 +56,56 @@ export default function App() {
       )
     );
 
-    setSelectedFriend(null)
+    setSelectedFriend(null);
   }
 
   return (
-    <div className="app lg:flex md:flex">
-      <div className="sidebar">
-        <FriendList
-          friends={friends}
-          selectedFriend={selectedFriend}
-          onSelection={handleSelection}
-        />
+    <div className=" flex-col min-h-screen items-center justify-between">
+      <div className="App lg:flex-row md:flex-row flex-1 w-full max-w-screen-lg">
+        <div className="sidebar">
+          <FriendList
+            friends={friends}
+            selectedFriend={selectedFriend}
+            onSelection={handleSelection}
+          />
 
-        {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
+          {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
 
-        <Button onClick={handleShowAddFriend}>
-          {showAddFriend ? "close" : "Add friend"}
-        </Button>
+          <Button onClick={handleShowAddFriend}>
+            {showAddFriend ? "close" : "Add friend"}
+          </Button>
+        </div>
+        {selectedFriend && (
+          <FormSplitBill
+            selectedFriend={selectedFriend}
+            onSplitBill={handleSplitBill}
+          />
+        )}
+        
       </div>
-      {selectedFriend && (
-        <FormSplitBill
-          selectedFriend={selectedFriend}
-          onSplitBill={handleSplitBill}
-        />
-      )}
-      <Footer/>
-    </div>
+      <Footer />
+      </div>
+      
+
   );
 }
 
 function FriendList({ friends, onSelection, selectedFriend }) {
   return (
     <div>
-      <h1 className="text-center font-bold text-6xl py-10 bg-[#fff4e6] rounded ">Eat-And-SPLIT</h1>
-    <ul>
-      {friends.map((friend) => (
-        <Friend
-          friend={friend}
-          key={friend.id}
-          selectedFriend={selectedFriend}
-          onSelection={onSelection}
-        />
-      ))}
-    </ul>
+      <h1 className="text-center font-bold text-6xl py-10 bg-[#fff4e6] rounded ">
+        Eat-And-SPLIT
+      </h1>
+      <ul>
+        {friends.map((friend) => (
+          <Friend
+            friend={friend}
+            key={friend.id}
+            selectedFriend={selectedFriend}
+            onSelection={onSelection}
+          />
+        ))}
+      </ul>
     </div>
   );
 }
@@ -166,7 +173,9 @@ function FormAddFriend({ onAddFriend }) {
       />
 
       <Button>Add</Button>
+      
     </form>
+
   );
 }
 function FormSplitBill({ selectedFriend, onSplitBill }) {
@@ -222,10 +231,15 @@ function FormSplitBill({ selectedFriend, onSplitBill }) {
   );
 }
 function Footer() {
-  return(
-    <div>
-      <marquee> </marquee>
-      
+  return (
+    <div className="mx-10 rounded bg-red-50 my-10 text-3xl">
+      <marquee behavior="scroll" direction="left" scrollamount="5">
+        In a world where sharing meals and experiences is a cherished tradition,
+        managing shared expenses can sometimes be a hassle. Enter
+        "Eat-And-SPLIT," a user-friendly and intuitive web application designed
+        to simplify the process of splitting bills and keeping track of shared
+        expenses among friends.{" "}
+      </marquee>
     </div>
-  )
+  );
 }

@@ -60,7 +60,7 @@ export default function App() {
   }
 
   return (
-    <div className="app lg:flex md:flex mt-11">
+    <div className="app lg:flex md:flex">
       <div className="sidebar">
         <FriendList
           friends={friends}
@@ -86,6 +86,8 @@ export default function App() {
 
 function FriendList({ friends, onSelection, selectedFriend }) {
   return (
+    <div>
+      <h1 className="text-center font-bold text-6xl py-10 bg-[#ffe8cc] rounded-ss-md">Eat-And-SPLIT</h1>
     <ul>
       {friends.map((friend) => (
         <Friend
@@ -96,6 +98,7 @@ function FriendList({ friends, onSelection, selectedFriend }) {
         />
       ))}
     </ul>
+    </div>
   );
 }
 

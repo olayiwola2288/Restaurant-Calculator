@@ -153,6 +153,7 @@ function FormAddFriend({ onAddFriend }) {
       <label>👩🏾‍🤝‍👩🏼 Friend name</label>
       <input
         type="text"
+        placeholder="Enter your friend name"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />

@@ -60,8 +60,8 @@ export default function App() {
   }
 
   return (
-    <div className=" flex-col min-h-screen items-center justify-between">
-      <div className="App lg:flex-row md:flex-row flex-1 w-full max-w-screen-lg">
+    <div className="lg:flex flex-col min-h-screen items-center justify-between">
+      <div className="lg:flex gap-48 App lg:flex-row md:flex-row flex-1 w-full max-w-screen-lg">
         <div className="sidebar">
           <FriendList
             friends={friends}
@@ -71,7 +71,7 @@ export default function App() {
 
           {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
 
-          <Button onClick={handleShowAddFriend}>
+          <Button  onClick={handleShowAddFriend} className="text-orange-800">
             {showAddFriend ? "close" : "Add friend"}
           </Button>
         </div>
@@ -191,7 +191,7 @@ function FormSplitBill({ selectedFriend, onSplitBill }) {
     onSplitBill(WhoIsPaying === "user" ? paidByFriend : -paidByUser);
   }
   return (
-    <form className="form-split-bill" onSubmit={handleSubmit}>
+    <form className="form-split-bill mt-28" onSubmit={handleSubmit}>
       <h2>Split a bill with {selectedFriend.name}</h2>
 
       <label>💰 Bill value</label>

@@ -232,7 +232,7 @@ function FormSplitBill({ selectedFriend, onSplitBill }) {
 }
 function Footer() {
   return (
-    <div className="mx-10 rounded bg-red-50 my-10 text-3xl">
+    <div className="mx-10 rounded bg-[#fff4e6] my-10 text-3xl static">
       <marquee behavior="scroll" direction="left" scrollamount="5">
         In a world where sharing meals and experiences is a cherished tradition,
         managing shared expenses can sometimes be a hassle. Enter
